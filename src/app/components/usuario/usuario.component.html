@@ -1,0 +1,28 @@
+
+<div class="container">
+    <h2>Lista de usuarios</h2>
+    <button class="btn btn-primary mb-3" [routerLink]="['formulario']">Crear usuario</button>  
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <th scope="row">{{usuario.id_usuario}}</th>
+            <th scope="row">{{usuario.nombre}}</th>
+            <th scope="row">{{usuario.rol.nombre}}</th>
+            <th scope="row">{{usuario.estado}}</th>
+            <td>
+             <button class="btn btn-info me-2"[routerLink]="['formulario', usuario.id_usuario]">Editar</button>  
+             <button class="btn btn-danger" (click)="eliminarUsuario(usuario.id_usuario)">Eliminar</button>  
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Guardar usuario</h2>
+    <form >
+
+        <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="usuario.nombre">
+            </div>
+        <div class= "mb-3">
+            <label for="Cargo" class="form-label">Cargo</label>
+            <select [(ngModel)]="usuario.rol" class="form-control" name="rol"[compareWith]="compararRol">
+                 <option *ngFor="let role of rol" [ngValue]="role">{{role.nombre }}</option>
+         </select>
+            </div>
+        <div class="mb-3">
+            <label for="Estado" class="form-label">Estado</label>
+            <input type="text" class="form-control" name="estado" [(ngModel)]="usuario.estado">
+        </div>
+    
+        
+        <button type="submit" class="btn btn-primary mt-2" (click)="crearUsuario()" *ngIf="!usuario.id_usuario">Guardar</button>
+        <button type="submit" class="btn btn-primary mt-2" (click)="actualizar()" *ngIf="usuario.id_usuario">Guardar</button>
+     
+    </form>
+
+
